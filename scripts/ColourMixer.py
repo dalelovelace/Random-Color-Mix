@@ -1,4 +1,5 @@
 # Created by Dale Lovelace <dalelovelace@gmail.com>
+# Modified by James Trigg <james@jamestrigg.co.uk>
 
 from ..Script import Script
 #import random
@@ -6,16 +7,16 @@ from random import seed
 from random import random
 from random import randint
 
-class RandomMix(Script):
+class ColourMixer(Script):
     def __init__(self):
         super().__init__()
 
     def getSettingDataString(self):
         return """{
-            "name": "Randomly change extruder mix",
-            "key": "RandomMix",
+            "name": "Mix Colours",
+            "key": "ColourMixer",
             "metadata": {},
-            "version": 2,
+            "version": 1,
             "settings":
             {
                 "minimum":
@@ -64,7 +65,7 @@ class RandomMix(Script):
                         S1 = 100 - S0
                         text = "M163 S0 P" + str(S0 / 100) + "\n"
                         text = text + "M163 S1 P" + str(S1 / 100) + "\n"
-                        text = text + "M164 ; Added by Random Mix\n"
+                        text = text + "M164 ; Added by Colour Mixer\n"
                         line_index = lines.index(line)
                         lines[line_index] = text + line
                 final_lines = "\n".join(lines)
